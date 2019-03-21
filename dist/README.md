@@ -111,7 +111,7 @@ The `basic` partial bundle contains trace modules `scatter`, `bar` and `pie`.
 
 | Raw size | Minified size | Minified + gzip size |
 |------|-----------------|------------------------|
-| 2.3 MB | 817.1 kB | 267 kB |
+| 2.3 MB | 817.2 kB | 267 kB |
 
 #### CDN links
 

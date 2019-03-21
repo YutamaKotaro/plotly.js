@@ -642,7 +642,7 @@ function _hover(gd, evt, subplot, noHoverEvent) {
             spikePoints.vLinePoint = fillSpikePoint(tmpVPoint);
         }
     }
-
+    gd.point_data = { xval, yval };
     // if hoverData is empty check for the spikes to draw and quit if there are none
     if(hoverData.length === 0) {
         var result = dragElement.unhoverRaw(gd, evt);

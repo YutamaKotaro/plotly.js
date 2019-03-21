@@ -21864,7 +21864,7 @@ module.exports = function click(gd, evt, subplot) {
         hover(gd, evt, subplot, true);
     }
 
-    function emitClick() { gd.emit('plotly_click', {points: gd._hoverdata, event: evt}); }
+    function emitClick() { gd.emit('plotly_click', {points: gd._hoverdata, event: evt, data: gd.point_data }); }
 
     if(gd._hoverdata && evt && evt.target) {
         if(annotationsDone && annotationsDone.then) {
@@ -21875,6 +21875,7 @@ module.exports = function click(gd, evt, subplot) {
         // why do we get a double event without this???
         if(evt.stopImmediatePropagation) evt.stopImmediatePropagation();
     }
+    emitClick();
 };
 
 },{"../../registry":242,"./hover":79}],76:[function(_dereq_,module,exports){
@@ -22820,7 +22821,7 @@ function _hover(gd, evt, subplot, noHoverEvent) {
             spikePoints.vLinePoint = fillSpikePoint(tmpVPoint);
         }
     }
-
+    gd.point_data = { xval, yval };
     // if hoverData is empty check for the spikes to draw and quit if there are none
     if(hoverData.length === 0) {
         var result = dragElement.unhoverRaw(gd, evt);
